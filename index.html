@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>D3JS Knowledge Meet Session</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Welcome to D3JS Session</h1>
+<ul></ul>
+
+<!--
+<ul>
+    <li class="item">mjdhhjd</li>
+    <li class="item">djdj</li>
+    <li class="item">dnjkdh</li>
+    <li class="item">djd</li>
+    <li class="item">sdhjhshfh</li>
+</ul>
+-->
+
+
+
+<!--<svg width="500" height="500">
+    <circle cx="60" cy="70" r="60" stroke="green" stroke-width="4" fill="red" />
+    <rect height="100" width="150" stroke="blue" x="0" y="0" stroke-width="5" fill="black"/>
+
+    <rect height="100" width="150" stroke="blue" x="160" stroke-width="5" fill="black"/>
+</svg>-->
+
+<script src="script/d3.v3.min.js"></script>
+<script>
+    /*d3.select('.name').text("Hello");*/
+    /*var svg = d3.select('body')
+        .append('svg')
+        .attr('width', 300)
+        .attr('height', 300);
+    svg.append('rect').attr('width', 100).attr('height', 100).attr('x', 10).attr('y', 10).style('fill', 'green')
+    svg.append('circle').attr('cy', 100).attr('cx', 150).attr('r', 25).style('fill', 'red')*/
+
+  /*  var arr=['Raj','Agam','Anurag','Lata','Sonam']*/
+    /*style({'background':'red','color':'yellow','font-weight':'bold','list-style-type':'none'})*/
+    var arr=[{name:'Raj',lastname:'Barnwal',color:'red','age':23,'class':'c1'},
+            {name:'Agam',lastname:'agarwal',color:'blue','age':26,'class':'c2'},
+            {name:'Lata',lastname:'Tiwari',color:'green','age':24,'class':'c3'},
+            {name:'Anurag',lastname:'Malhotra',color:'Yellow','age':28,'class':'c4'},
+            {name:'Sonam',lastname:'TTND',color:'pink','age':25,'class':'c5'}]
+  var className="";
+    d3.select('ul').selectAll('li')
+        .data(arr)
+        .enter()
+        .append('li')
+        .style('background',function (data,index) {
+            if(data.age>25) {
+                return 'red'
+            }
+            else{
+                return 'green'
+            }
+        })
+        .attr("class",function (data,index) {
+            if(data.age>25){
+                className=data.class
+                return data.class   }
+        })
+        .classed(className,false)
+        .text(function (data,index) {
+        return data.name + " " +data.lastname;
+         })
+        /*.style({'font-weight':'bold','list-style-type':'none','padding':'10px','border':'5px solid navy'})
+        .style('font-size',function (data,index) {
+            return (index+1)*10 +'px'
+        })*/
+        .style({'list-style-type':'none','padding':'10px','border':'5px solid navy'})
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
